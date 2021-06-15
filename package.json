@@ -3,14 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 3001",
+    "export": "next export"
   },
   "dependencies": {
+    "@geist-ui/react": "^2.1.5",
+    "firebase": "^8.6.7",
     "next": "11.0.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-firebase-hooks": "^3.0.4",
+    "react-firebaseui": "^5.0.2"
   },
   "devDependencies": {
     "@types/react": "17.0.11",
