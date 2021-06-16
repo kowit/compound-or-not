@@ -1,7 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Main from "../components/home/Main";
-import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -13,8 +12,6 @@ const Home = () => {
       </Head>
 
       <Main />
-
-      <Footer styles={styles} />
     </div>
   );
 };

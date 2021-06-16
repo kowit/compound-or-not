@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Card, Button, Text, Input, Spacer } from "@geist-ui/react";
-
-const layout = {
-  labelCol: { span: 24 },
-  wrapperCol: { span: 24 },
-};
+import Results from "../results/Results";
 
 const DAYS_IN_YEAR = 365;
 
@@ -30,38 +26,32 @@ const CompoundFrequencyCalculator = () => {
   };
 
   return (
-    <div style={{ margin: "0 auto", maxWidth: "980px", marginTop: "80px" }}>
-      <Card style={{ borderRadius: "25px", padding: "40px" }}>
-        <Text h3>Compound Frequnecy Calculator</Text>
+    <div style={{ width: "100%" }}>
+      <form onSubmit={handleOnSubmit}>
+        <Card shadow>
+          <Input width="100%" size="large" placeholder="0.0" clearable>
+            Initial Investment:
+          </Input>
+        </Card>
         <Spacer />
-        <form onSubmit={handleOnSubmit}>
+        <Card shadow>
           <Input width="100%" size="large" placeholder="0.0" clearable>
-            Initial Investment
+            Gas Cost:
           </Input>
-          <Spacer />
+        </Card>
+        <Spacer />
+        <Card shadow>
           <Input width="100%" size="large" placeholder="0.0" clearable>
-            Gas Cost
+            APY:
           </Input>
-          <Spacer />
+        </Card>
+        <Spacer />
+        <Card shadow>
           <Input width="100%" size="large" placeholder="0.0" clearable>
-            APY
+            Gained So Far:
           </Input>
-          <Spacer />
-          <Input width="100%" size="large" placeholder="0.0" clearable>
-            Gained So Far
-          </Input>
-          <Spacer />
-          <Button
-            shadow
-            size="large"
-            type="success"
-            style={{ width: "100%" }}
-            htmlType="submit"
-          >
-            Calculate
-          </Button>
-        </form>
-      </Card>
+        </Card>
+      </form>
     </div>
   );
 };
