@@ -1,0 +1,16 @@
+[debug] [2021-06-16T18:08:40.437Z] ----------------------------------------------------------------------
+[debug] [2021-06-16T18:08:40.438Z] Command:       /Users/ckk/.nvm/versions/node/v14.17.0/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2021-06-16T18:08:40.439Z] CLI Version:   8.18.1
+[debug] [2021-06-16T18:08:40.439Z] Platform:      darwin
+[debug] [2021-06-16T18:08:40.439Z] Node Version:  v14.17.0
+[debug] [2021-06-16T18:08:40.439Z] Time:          Wed Jun 16 2021 14:08:40 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-06-16T18:08:40.439Z] ----------------------------------------------------------------------
+[debug] [2021-06-16T18:08:40.439Z] 
+[debug] [2021-06-16T18:08:40.446Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-16T18:08:40.446Z] > authorizing via signed-in user
+[debug] [2021-06-16T18:08:40.446Z] [iam] checking project compound-or-not for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-06-16T18:08:40.448Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/compound-or-not:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-06-16T18:08:40.670Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Jun 2021 18:08:40 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=97","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-16T18:08:40.675Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/compound-or-not  
+ 
