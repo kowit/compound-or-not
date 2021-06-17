@@ -1,6 +1,6 @@
 import { Row, Col, Card, Text, Spacer } from "@geist-ui/react";
 
-const Results = ({ showResults, setShowResults }: any) => {
+const Results = ({ calculateDaysSinceLastCompound }: any) => {
   return (
     <div style={{ width: "100%" }}>
       <Card shadow>
@@ -27,7 +27,7 @@ const Results = ({ showResults, setShowResults }: any) => {
       </Card>
       <Spacer />
       <Card shadow>
-        <Row gap={0.9}>
+        {/* <Row gap={0.9}>
           <Col span={20}>
             <Text h5>Days Since Last Compound:</Text>
           </Col>
@@ -36,14 +36,14 @@ const Results = ({ showResults, setShowResults }: any) => {
               <Text h5>4.78</Text>
             </Row>
           </Col>
-        </Row>
+        </Row> */}
         <Row gap={0.9}>
           <Col span={20}>
             <Text h5>Days Since Last Compound:</Text>
           </Col>
           <Col span={4}>
             <Row justify="end">
-              <Text h5>16.32</Text>
+              <Text h5>{calculateDaysSinceLastCompound()}</Text>
             </Row>
           </Col>
         </Row>
