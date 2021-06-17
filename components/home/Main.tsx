@@ -8,7 +8,7 @@ const Main = () => {
         <Grid.Container justify="center" style={{ paddingBottom: "60px" }}>
           <Grid>
             <Text h2 style={{ textAlign: "center", fontWeight: 700 }}>
-              Compound Frequency Calculator
+              Compound or Not
             </Text>
           </Grid>
         </Grid.Container>

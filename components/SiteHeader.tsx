@@ -19,7 +19,7 @@ const SiteHeader = ({ themeType, switchThemes }: any) => {
       <Grid.Container style={{ padding: "20px" }}>
         <Grid xs={22}>
           <Text h3 style={{ fontWeight: 700 }}>
-            Compound or Not
+            {/* Compound or Not */}
           </Text>
         </Grid>
         <Grid xs={2} justify="flex-end">
