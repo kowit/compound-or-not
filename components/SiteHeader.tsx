@@ -1,18 +1,26 @@
-import { Text, Grid } from "@geist-ui/react";
+import { Text, Grid, useTheme } from "@geist-ui/react";
 import ThemeSwitcherButton from "./ThemeButton";
 
 const SiteHeader = ({ themeType, switchThemes }: any) => {
+  const theme = useTheme();
+  const { palette } = theme;
+
   return (
     <header
       style={{
-        padding: "10px",
+        zIndex: 9999,
+        background: palette.background,
+        position: "fixed",
+        width: "100%",
         boxShadow:
           "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
       }}
     >
-      <Grid.Container gap={2}>
+      <Grid.Container style={{ padding: "20px" }}>
         <Grid xs={12}>
-          <Text h3>Compound or Not</Text>
+          <Text h3 style={{ fontWeight: 700 }}>
+            Compound or Not
+          </Text>
         </Grid>
         <Grid xs={12} justify="flex-end">
           <ThemeSwitcherButton

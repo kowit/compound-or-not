@@ -53,7 +53,6 @@ const CompoundFrequencyCalculator = () => {
                 width="100%"
                 size="large"
                 placeholder="0.0"
-                clearable
                 icon={<DollarSign />}
                 defaultValue={0.0}
                 onChange={(e) =>
@@ -69,7 +68,6 @@ const CompoundFrequencyCalculator = () => {
                 width="100%"
                 size="large"
                 placeholder="0.0"
-                clearable
                 icon={<DollarSign />}
                 defaultValue={0.0}
                 onChange={(e) => setGasCost(parseFloat(e.target.value))}
@@ -83,7 +81,6 @@ const CompoundFrequencyCalculator = () => {
                 width="100%"
                 size="large"
                 placeholder="0.0"
-                clearable
                 iconRight={<Percent />}
                 onChange={(e) => setAPY(parseFloat(e.target.value))}
               >
@@ -96,7 +93,6 @@ const CompoundFrequencyCalculator = () => {
                 width="100%"
                 size="large"
                 placeholder="0.0"
-                clearable
                 icon={<DollarSign />}
                 defaultValue={0.0}
                 onChange={(e) => setGainedSoFar(parseFloat(e.target.value))}

@@ -43,7 +43,9 @@ const Results = ({ calculateDaysSinceLastCompound }: any) => {
           </Col>
           <Col span={4}>
             <Row justify="end">
-              <Text h5>{calculateDaysSinceLastCompound()}</Text>
+              <Text h5 style={{ fontWeight: 800 }}>
+                {calculateDaysSinceLastCompound()}
+              </Text>
             </Row>
           </Col>
         </Row>
