@@ -25,10 +25,10 @@ const CompoundFrequencyCalculator = () => {
     console.log('sum:', sum)
 
     if (
-      initialInvestment === 0 ||
-      gasCost === 0 ||
-      APR === 0 ||
-      gainedSoFar === 0
+      !initialInvestment ||
+      !gasCost ||
+      !APR ||
+      !gainedSoFar
     ) {
       return 'NaN';
     } else {
@@ -38,16 +38,19 @@ const CompoundFrequencyCalculator = () => {
 
   const calculateDaysTillNextCompound = () => {
     if (
-      initialInvestment === 0 ||
-      gasCost === 0 ||
-      APR === 0 ||
-      gainedSoFar === 0
+      !initialInvestment ||
+      !gasCost ||
+      !APR ||
+      !gainedSoFar
     ) {
       return 'NaN';
     } else {
       const daysSinceLastCompound = calculateDaysSinceLastCompound()
       const optimumCompoundDays = calculateOptimumCompoundDays()
-      const result = optimumCompoundDays.days - daysSinceLastCompound
+      if (daysSinceLastCompound === 'NaN' || optimumCompoundDays.days === 'NaN') {
+        return 'NaN'; 
+      }
+      const result = Number(optimumCompoundDays.days) - daysSinceLastCompound
       return parseFloat(result.toFixed(4));
     }
   }
