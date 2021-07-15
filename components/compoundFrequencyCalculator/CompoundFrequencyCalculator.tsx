@@ -6,33 +6,77 @@ import { DollarSign, Percent } from "@geist-ui/react-icons";
 const DAYS_IN_YEAR = 365;
 
 const CompoundFrequencyCalculator = () => {
-  const [initialInvestment, setInitialInvestment] = useState(0.0);
-  const [gasCost, setGasCost] = useState(0.0);
-  const [APY, setAPY] = useState(0.0);
-  const [gainedSoFar, setGainedSoFar] = useState(0.0);
+  const [initialInvestment, setInitialInvestment] = useState(0);
+  const [gasCost, setGasCost] = useState(0);
+  const [APR, setAPR] = useState(0);
+  const [gainedSoFar, setGainedSoFar] = useState(0);
 
-  useEffect(() => {}, [initialInvestment, gasCost, APY, gainedSoFar]);
+  useEffect(() => {}, [initialInvestment, gasCost, APR, gainedSoFar]);
 
   const calculateDaysSinceLastCompound = () => {
     console.log("\n\n");
     console.log("initialInvestment: ", initialInvestment);
     console.log("gasCost: ", gasCost);
-    console.log("APY: ", APY);
+    console.log("APR: ", APR);
     console.log("gainedSoFar: ", gainedSoFar);
 
-    const sum = (gainedSoFar / (initialInvestment * APY)) * DAYS_IN_YEAR;
+    const sum = (gainedSoFar / (initialInvestment * APR)) * DAYS_IN_YEAR;
+
+    console.log('sum:', sum)
 
     if (
       initialInvestment === 0 ||
       gasCost === 0 ||
-      APY === 0 ||
+      APR === 0 ||
       gainedSoFar === 0
     ) {
-      return 0;
+      return 'NaN';
     } else {
       return parseFloat(sum.toFixed(4)) * 100.0;
     }
   };
+
+  const calculateDaysTillNextCompound = () => {
+    if (
+      initialInvestment === 0 ||
+      gasCost === 0 ||
+      APR === 0 ||
+      gainedSoFar === 0
+    ) {
+      return 'NaN';
+    } else {
+      const daysSinceLastCompound = calculateDaysSinceLastCompound()
+      const optimumCompoundDays = calculateOptimumCompoundDays()
+      const result = optimumCompoundDays.days - daysSinceLastCompound
+      return parseFloat(result.toFixed(4));
+    }
+  }
+
+  const calculateOptimumCompoundDays = () => {
+    if (
+      !initialInvestment ||
+      !gasCost ||
+      !APR
+    ) {
+      return { days: 'NaN', amount: 'NaN' }
+    }
+    let optimum = -99999999
+    let i = 1
+    let continueWhile = true
+    while(i < 10000 && continueWhile) { // 1000 loops or after optimum is found
+      const APRDecimal = APR / 100
+      const value = initialInvestment*Math.pow(1+(APRDecimal/(DAYS_IN_YEAR/i)),(DAYS_IN_YEAR/i))+(gasCost-gasCost*Math.pow(1+(APRDecimal/(DAYS_IN_YEAR/i)),(DAYS_IN_YEAR/i)))/(APRDecimal/(DAYS_IN_YEAR/i))
+      if (value > 0) { // value must be greater than zero
+        if (value > optimum) {
+          optimum = value
+        } else {
+          continueWhile = false
+        }
+      }
+      i++
+    }
+    return { days: i-2, amount: optimum }
+  }
 
   // const calculateDaysTillNextCompound = (e: any) => {
   //   console.log("e: ", e.target.value);
@@ -82,9 +126,9 @@ const CompoundFrequencyCalculator = () => {
                 size="large"
                 placeholder="0.0"
                 iconRight={<Percent />}
-                onChange={(e) => setAPY(parseFloat(e.target.value))}
+                onChange={(e) => setAPR(parseFloat(e.target.value))}
               >
-                APY:
+                APR:
               </Input>
             </Card>
             <Spacer />
@@ -106,6 +150,8 @@ const CompoundFrequencyCalculator = () => {
       <Grid xl={14} lg={14} md={14} sm={24} xs={24}>
         <Results
           calculateDaysSinceLastCompound={calculateDaysSinceLastCompound}
+          calculateDaysTillNextCompound={calculateDaysTillNextCompound}
+          calculateOptimumCompoundDays={calculateOptimumCompoundDays}
         />
       </Grid>
     </Grid.Container>
