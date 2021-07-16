@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid, Card, Button, Text, Input, Spacer } from "@geist-ui/react";
 import Results from "../results/Results";
 import { DollarSign, Percent } from "@geist-ui/react-icons";
+import Circle from '@geist-ui/react-icons/circle'
 
 const DAYS_IN_YEAR = 365;
 
@@ -89,7 +90,27 @@ const CompoundFrequencyCalculator = () => {
     e.preventDefault();
   };
 
+  let trafficLightColor = 'gray'
+  if (calculateDaysTillNextCompound() === 'NaN') {
+    trafficLightColor = 'gray'
+  } else if (calculateDaysTillNextCompound() > 3) {
+    trafficLightColor = 'red'
+  } else if (calculateDaysTillNextCompound() > 0) {
+    trafficLightColor = 'gold'
+  } else if (calculateDaysTillNextCompound() < 0) {
+    trafficLightColor = 'green'
+  }
+
   return (
+    <>
+    <Grid.Container justify="center" style={{ paddingBottom: "60px" }}>
+      <Grid>
+        <Circle
+          size={100}
+          color={trafficLightColor}
+        />
+      </Grid>
+    </Grid.Container>
     <Grid.Container gap={6} justify="center">
       <Grid xl={10} lg={10} md={10} sm={24} xs={24}>
         <div style={{ width: "100%" }}>
@@ -158,6 +179,7 @@ const CompoundFrequencyCalculator = () => {
         />
       </Grid>
     </Grid.Container>
+    </>
   );
 };
 

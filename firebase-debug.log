@@ -1,0 +1,44 @@
+[debug] [2021-07-15T13:29:20.244Z] ----------------------------------------------------------------------
+[debug] [2021-07-15T13:29:20.247Z] Command:       /Users/Kyle/.nvm/versions/node/v14.17.0/bin/node /Users/Kyle/.nvm/versions/node/v12.9.1/bin/firebase deploy --only hosting
+[debug] [2021-07-15T13:29:20.248Z] CLI Version:   8.11.2
+[debug] [2021-07-15T13:29:20.248Z] Platform:      darwin
+[debug] [2021-07-15T13:29:20.248Z] Node Version:  v14.17.0
+[debug] [2021-07-15T13:29:20.250Z] Time:          Thu Jul 15 2021 17:29:20 GMT+0400 (Gulf Standard Time)
+[debug] [2021-07-15T13:29:20.250Z] ----------------------------------------------------------------------
+[debug] [2021-07-15T13:29:20.250Z] 
+[debug] [2021-07-15T13:29:20.267Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-07-15T13:29:20.267Z] > authorizing via signed-in user
+[debug] [2021-07-15T13:29:20.268Z] [iam] checking project compound-or-not for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-07-15T13:29:20.271Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-07-15T13:29:20.271Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-07-15T13:29:21.472Z] <<< HTTP RESPONSE 200 {"date":"Thu, 15 Jul 2021 13:29:21 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-15T13:29:21.480Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/compound-or-not:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-07-15T13:29:22.534Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 15 Jul 2021 13:29:22 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=133","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-15T13:29:22.535Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project compound-or-not:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2021-07-15T13:29:22.537Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/compound-or-not  
+ 
+[debug] [2021-07-15T13:29:23.658Z] <<< HTTP RESPONSE 403 {"vary":"X-Origin, Referer, Origin,Accept-Encoding","content-type":"application/json; charset=UTF-8","date":"Thu, 15 Jul 2021 13:29:23 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-15T13:29:23.659Z] <<< HTTP RESPONSE BODY {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2021-07-15T13:29:23.660Z] HTTP Error: 403, The caller does not have permission
+[debug] [2021-07-15T13:29:23.661Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (/Users/Kyle/.nvm/versions/node/v12.9.1/lib/node_modules/firebase-tools/lib/responseToError.js:38:12)
+    at Request._callback (/Users/Kyle/.nvm/versions/node/v12.9.1/lib/node_modules/firebase-tools/lib/api.js:41:35)
+    at Request.self.callback (/Users/Kyle/.nvm/versions/node/v12.9.1/lib/node_modules/firebase-tools/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:376:20)
+    at Request.emit (domain.js:470:12)
+    at Request.<anonymous> (/Users/Kyle/.nvm/versions/node/v12.9.1/lib/node_modules/firebase-tools/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:376:20)
+    at Request.emit (domain.js:470:12)
+    at IncomingMessage.<anonymous> (/Users/Kyle/.nvm/versions/node/v12.9.1/lib/node_modules/firebase-tools/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:482:28)
+    at IncomingMessage.emit (events.js:388:22)
+    at IncomingMessage.emit (domain.js:470:12)
+    at endReadableNT (internal/streams/readable.js:1336:12)
+    at processTicksAndRejections (internal/process/task_queues.js:82:21)
+[error] 
+[error] Error: Failed to get Firebase project compound-or-not. Please make sure the project exists and your account has permission to access it.

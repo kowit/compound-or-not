@@ -1,12 +1,23 @@
-import { Text, Button } from "@geist-ui/react";
-import { HeartFill } from "@geist-ui/react-icons";
+import { Text, Button, Spacer } from "@geist-ui/react";
+import PenTool from '@geist-ui/react-icons/penTool'
+import HeartFill from '@geist-ui/react-icons/heartFill'
+
+import styles from '../styles/Home.module.css';
+
+const openInNewTab = (url) => {
+  const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+  if (newWindow) newWindow.opener = null
+}
 
 const Footer = (props: any) => {
-  const { styles } = props;
   return (
     <footer className={styles.footer}>
-      <Button size="small" auto iconRight={<HeartFill />}>
-        Donate to support us
+      <Text h2>Enjoying the tool?</Text>
+      <Text h5>Donate to support us <HeartFill size={10} /></Text>
+      <Text h5>Ethereum: 0x6d82Bbb9c207D256bb1157b8f0773FF97AeEd274</Text>
+      <Spacer />
+      <Button size="small" auto iconRight={<PenTool />} onClick={() => openInNewTab("https://github.com/kowit/compound-or-not")}>
+        Consider contributing to open source
       </Button>
     </footer>
   );
