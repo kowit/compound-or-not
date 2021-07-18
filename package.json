@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p 3001",
     "export": "next export",
-    "deploy": "firebase deploy --only hosting"
+    "deploy": "yarn run build && yarn run export && firebase deploy --only hosting"
   },
   "dependencies": {
     "@geist-ui/react": "^2.1.5",

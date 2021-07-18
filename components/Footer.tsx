@@ -14,7 +14,7 @@ const Footer = (props: any) => {
     <footer className={styles.footer}>
       <Text h2>Enjoying the tool?</Text>
       <Text h5>Donate to support us <HeartFill size={10} /></Text>
-      <Text h5>Ethereum: 0x6d82Bbb9c207D256bb1157b8f0773FF97AeEd274</Text>
+      <Text h6>Ethereum: 0x6d82Bbb9c207D256bb1157b8f0773FF97AeEd274</Text>
       <Spacer />
       <Button size="small" auto iconRight={<PenTool />} onClick={() => openInNewTab("https://github.com/kowit/compound-or-not")}>
         Consider contributing to open source
