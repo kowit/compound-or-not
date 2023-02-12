@@ -1,6 +1,6 @@
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import Main from "../components/home/Main";
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
+import Main from '../src/components/Main'
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
 
       <Main />
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

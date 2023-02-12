@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import type { AppProps } from "next/app";
 import { GeistProvider, CssBaseline } from "@geist-ui/react";
-import SiteHeader from "../components/SiteHeader";
+import SiteHeader from "../src/components/SiteHeader";
 import "../styles/globals.css";
 import { analytics } from "../firebase/clientApp";
 

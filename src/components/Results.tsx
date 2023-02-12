@@ -1,8 +1,14 @@
-import { Row, Col, Card, Text, Spacer } from "@geist-ui/react";
+import React, { FunctionComponent } from 'react'
+import { observer } from 'mobx-react'
+import { Row, Col, Card, Text, Spacer } from '@geist-ui/react'
+import compoundFrequencyStore from '../stores/compoundFrequencyStore'
 
-const Results = ({ calculateDaysSinceLastCompound, calculateDaysTillNextCompound, calculateOptimumCompoundDays }: any) => {
+const Results: FunctionComponent = observer(() => {
+  const { calculateDaysSinceLastCompound, calculateOptimumCompoundDays, calculateDaysTillNextCompound } =
+    compoundFrequencyStore
+
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: '100%' }}>
       <Card shadow>
         <Row gap={0.9}>
           <Col span={20}>
@@ -23,10 +29,7 @@ const Results = ({ calculateDaysSinceLastCompound, calculateDaysTillNextCompound
           <Col span={4}>
             <Row justify="end">
               <Text h5 style={{ fontWeight: 800 }}>
-                {Number(calculateDaysSinceLastCompound())
-                  ? calculateDaysSinceLastCompound().toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                  : 'NaN'
-                }
+                {calculateDaysSinceLastCompound()}
               </Text>
             </Row>
           </Col>
@@ -62,18 +65,13 @@ const Results = ({ calculateDaysSinceLastCompound, calculateDaysTillNextCompound
           </Col>
           <Col span={8}>
             <Row justify="end">
-              <Text h5>
-                ${Number(calculateOptimumCompoundDays().amount)
-                  ? calculateOptimumCompoundDays().amount.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                  : 'NaN'
-                }
-              </Text>
+              <Text h5>${calculateOptimumCompoundDays().amount}</Text>
             </Row>
           </Col>
         </Row>
       </Card>
     </div>
-  );
-};
+  )
+})
 
-export default Results;
+export default Results
