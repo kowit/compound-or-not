@@ -1,15 +1,20 @@
 import React, { FunctionComponent } from 'react'
+import { SimpleGrid } from '@chakra-ui/react'
 import CompoundFrequencyCalculator from './CompoundFrequencyCalculator'
 import Footer from './Footer'
+import Results from './Results'
+import { Indicator } from './Indicator'
 
 const Main: FunctionComponent = () => {
   return (
-    <div style={{ marginTop: '140px', padding: '0 20px 0 20px' }}>
-      <div style={{ margin: '0 auto', maxWidth: '840px' }}>
+    <SimpleGrid justifyItems="center" gap={10}>
+      <Indicator size="100" />
+      <SimpleGrid columns={2} gap={20}>
         <CompoundFrequencyCalculator />
-        <Footer />
-      </div>
-    </div>
+        <Results />
+      </SimpleGrid>
+      <Footer />
+    </SimpleGrid>
   )
 }
 

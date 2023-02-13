@@ -1,7 +1,6 @@
-import { Text, Button, Spacer } from '@geist-ui/react'
-import PenTool from '@geist-ui/react-icons/penTool'
-import HeartFill from '@geist-ui/react-icons/heartFill'
-
+import React, { FunctionComponent } from 'react'
+import { Button, Code, Flex, SimpleGrid, Spacer, Text } from '@chakra-ui/react'
+import { FaHeart, FaPenAlt } from 'react-icons/fa'
 import styles from '../../styles/Home.module.css'
 
 const openInNewTab = (url: string) => {
@@ -9,23 +8,26 @@ const openInNewTab = (url: string) => {
   if (newWindow) newWindow.opener = null
 }
 
-const Footer = (props: any) => {
+const Footer: FunctionComponent = (props: any) => {
   return (
     <footer className={styles.footer}>
-      <Text h2>Enjoying the tool?</Text>
-      <Text h5>
-        Donate to support us <HeartFill size={10} />
-      </Text>
-      <Text h6>Ethereum: 0x6d82Bbb9c207D256bb1157b8f0773FF97AeEd274</Text>
-      <Spacer />
-      <Button
-        size="small"
-        auto
-        iconRight={<PenTool />}
-        onClick={() => openInNewTab('https://github.com/kowit/compound-or-not')}
-      >
-        Consider contributing to open source
-      </Button>
+      <SimpleGrid gap="2" justifyItems="center">
+        <Text>Enjoying the tool?</Text>
+        <Button size="sm" width="240px" leftIcon={<FaHeart />}>
+          Donate to support us
+        </Button>
+        <Text>
+          Ethereum: <Code> 0x6d82Bbb9c207D256bb1157b8f0773FF97AeEd274</Code>
+        </Text>
+        <Spacer />
+        <Button
+          size="sm"
+          leftIcon={<FaPenAlt />}
+          onClick={() => openInNewTab('https://github.com/kowit/compound-or-not')}
+        >
+          Consider contributing to open source
+        </Button>
+      </SimpleGrid>
     </footer>
   )
 }

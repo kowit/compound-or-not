@@ -1,16 +1,11 @@
-import { useState, useEffect } from "react";
-import type { AppProps } from "next/app";
-import { GeistProvider, CssBaseline } from "@geist-ui/react";
-import SiteHeader from "../src/components/SiteHeader";
-import "../styles/globals.css";
-import { analytics } from "../firebase/clientApp";
+import { useEffect } from 'react'
+import type { AppProps } from 'next/app'
+import { ChakraProvider, theme } from '@chakra-ui/react'
+import { analytics } from '../firebase/clientApp'
+import SiteHeader from '../src/components/SiteHeader'
+import '../styles/globals.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const [themeType, setThemeType] = useState("dark");
-  const switchThemes = () => {
-    setThemeType((last) => (last === "dark" ? "light" : "dark"));
-  };
-
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       analytics()
@@ -18,12 +13,20 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [])
 
   return (
-    <GeistProvider themeType={themeType}>
-      <SiteHeader themeType={themeType} switchThemes={switchThemes} />
-      <CssBaseline />
+    <ChakraProvider
+      theme={{
+        ...theme,
+        fonts: {
+          heading: 'Cereal',
+          body: 'Cereal',
+          mono: 'Cereal'
+        }
+      }}
+    >
+      <SiteHeader />
       <Component {...pageProps} />
-    </GeistProvider>
-  );
-};
+    </ChakraProvider>
+  )
+}
 
-export default MyApp;
+export default MyApp
