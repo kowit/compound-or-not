@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { observer } from 'mobx-react'
 import compoundFrequencyStore from '../stores/compoundFrequencyStore'
-import { Box, Center, FormControl, FormLabel, Input, SimpleGrid, Spacer } from '@chakra-ui/react'
-import { CgShapeCircle } from 'react-icons/cg'
+import { Box, FormControl, FormLabel, Input, SimpleGrid, Spacer } from '@chakra-ui/react'
 
 const CompoundFrequencyCalculator: FunctionComponent = observer(() => {
   const { setInitialInvestment, setGasCost, setAPR, setGainedSoFar } = compoundFrequencyStore
